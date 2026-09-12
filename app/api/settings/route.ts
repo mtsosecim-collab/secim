@@ -1,0 +1,2 @@
+import {env} from 'cloudflare:workers';
+export async function GET(){try{const row=await env.DB.prepare("SELECT value FROM site_settings WHERE key='ad_enabled'").first<{value:string}>();return Response.json({ad_enabled:row?.value!=='false'},{headers:{'Cache-Control':'no-store'}})}catch{return Response.json({ad_enabled:true},{headers:{'Cache-Control':'no-store'}})}}
