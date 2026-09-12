@@ -13,3 +13,11 @@ export async function POST(r:Request){try{
   const result=await env.DB.prepare('UPDATE submissions SET group_id=?,list_name=?,candidates=?,color=? WHERE id=?').bind(b.group_id,'',(b.candidates||'').trim().slice(0,4000),b.color,b.id).run();
   if(!result.meta.changes)return out({error:'Başvuru bulunamadı.'},404);return out({saved:true});
 }catch{return out({error:'İşlem kaydedilemedi. Lütfen yeniden deneyin.'},503)}}
+export async function DELETE(r:Request){try{
+  if(!ok(r))return out({error:'Yetkisiz erişim.'},401);
+  const b=await r.json() as {id?:string};
+  if(!b.id)return out({error:'Başvuru seçilmedi.'},400);
+  const result=await env.DB.prepare('DELETE FROM submissions WHERE id=?').bind(b.id).run();
+  if(!result.meta.changes)return out({error:'Başvuru bulunamadı.'},404);
+  return out({deleted:true});
+}catch{return out({error:'Başvuru silinemedi. Lütfen yeniden deneyin.'},503)}}
