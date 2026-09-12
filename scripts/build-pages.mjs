@@ -6,7 +6,7 @@ const output = "dist/pages";
 const binding = {
   binding: "DB",
   database_name: "mtso-secimleri-db",
-  database_id: "20e6cf8b-e55f-49c8-8d1a-16fae06a7e4e",
+  database_id: "fedad054-7c97-4691-920d-94260c375354",
 };
 
 const serverConfigPath = "dist/server/wrangler.json";
