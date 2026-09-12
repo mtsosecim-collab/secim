@@ -22,3 +22,4 @@
 .upload-preview{display:block;width:min(100%,360px);padding:0;border:1px solid #d6e0e9;border-radius:9px;background:#fff;overflow:hidden;text-align:left}.upload-preview img{display:block;width:100%;max-height:280px;object-fit:contain;background:#f4f7f9}.upload-preview span{display:block;padding:9px 12px;font-weight:700;color:#125e66;font-size:14px}
 
 .group-list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:680px){.group-list-grid{grid-template-columns:1fr}}
+.merged-posters{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}.merged-posters .poster-link{width:100%;border:0;padding:0;background:transparent;text-align:center;color:#12626b;font-size:13px}.merged-posters .poster{width:100%;margin:0 0 6px}@media(max-width:680px){.merged-posters{grid-template-columns:1fr}}
