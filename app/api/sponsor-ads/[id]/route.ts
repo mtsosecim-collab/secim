@@ -1,0 +1,3 @@
+import {env} from 'cloudflare:workers';
+const cache=()=>((env as unknown as {VOTES_CACHE:KVNamespace}).VOTES_CACHE);
+export async function GET(_request:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params;if(!/^[a-f0-9-]{36}$/i.test(id))return new Response('Bulunamadı.',{status:404});const data=await cache().get('sponsor-ad:'+id);if(!data)return new Response('Bulunamadı.',{status:404});const comma=data.indexOf(',');const match=/^data:([^;]+);base64,/.exec(data);if(comma<0||!match)return new Response('Geçersiz medya.',{status:422});const bytes=Uint8Array.from(atob(data.slice(comma+1)),char=>char.charCodeAt(0));return new Response(bytes,{headers:{'Content-Type':match[1],'Cache-Control':'public, max-age=3600'}})}
