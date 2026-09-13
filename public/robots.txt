@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mtso.mtsosecim.workers.dev/sitemap.xml
