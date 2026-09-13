@@ -1,0 +1,3 @@
+import {env} from 'cloudflare:workers';
+const cache=()=>((env as unknown as {VOTES_CACHE:KVNamespace}).VOTES_CACHE);
+export async function GET(){const data=await cache().get('ad-media');const meta=await cache().get<{type:string}>('ad-media-meta','json');if(!data||!meta)return new Response(null,{status:404});const comma=data.indexOf(',');if(comma<0)return new Response(null,{status:404});const bytes=Uint8Array.from(atob(data.slice(comma+1)),char=>char.charCodeAt(0));return new Response(bytes,{headers:{'Content-Type':meta.type,'Cache-Control':'public, max-age=300'}})}
