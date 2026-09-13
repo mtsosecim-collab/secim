@@ -1,3 +1,3 @@
 import {env} from 'cloudflare:workers';
 export const dynamic='force-dynamic';
-export async function GET(){try{const rows=await env.DB.prepare("SELECT v.group_id,v.list_id,v.created_at,substr(v.voter,1,10) AS voter_code,s.color FROM votes v LEFT JOIN submissions s ON s.id=v.list_id ORDER BY v.created_at DESC LIMIT 30").all();return Response.json({votes:rows.results},{headers:{'Cache-Control':'no-store'}})}catch{return Response.json({votes:[]},{status:503,headers:{'Cache-Control':'no-store'}})}}
+export async function GET(){try{const rows=await env.DB.prepare("SELECT v.group_id,v.list_id,v.created_at,substr(v.voter,1,10) AS voter_code,s.color FROM votes v LEFT JOIN submissions s ON s.id=v.list_id WHERE v.created_at >= datetime('now','-59 minutes') ORDER BY v.created_at DESC LIMIT 500").all();return Response.json({votes:rows.results},{headers:{'Cache-Control':'no-store'}})}catch{return Response.json({votes:[]},{status:503,headers:{'Cache-Control':'no-store'}})}}
