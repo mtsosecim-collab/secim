@@ -24,14 +24,14 @@ export default function AuctionDemo(){
  function reset(){setLeader(initial);setHistory([]);setStep(0);setMoving(false)}
  return <main className="auction-demo">
   <header><a href="/">← Ana sayfaya dön</a><span>YEREL TEST · CANLIYA ALINMADI</span></header>
-  <section className="auction-hero"><p>TELEGRAM STARS REKLAM AÇIK ARTIRMASI</p><h1>Öne çıkmak için teklif ver</h1><strong>Her yeni teklif mevcut bedelin <b>20 Stars</b> üzerindedir.</strong></section>
+  <section className="auction-hero"><p>TELEGRAM STARS REKLAM AÇIK ARTIRMASI</p><h1>Öne çıkmak için teklif ver</h1><span className="auction-subtitle">Her teklif, mevcut tutara <b>20 Stars</b> ekler.</span></section>
   <section className="auction-stage" aria-live="polite">
    <div className={'auction-card leader '+(moving?'leaving':'')} style={{'--auction':leader.color} as React.CSSProperties}>
     <div className="auction-rank">ŞU ANDA ÖNDE</div><img src={leader.image} alt={leader.name}/><div className="auction-meta"><span>{leader.name}</span><b>{leader.stars} <small>★ Stars</small></b></div>
    </div>
    <div className="auction-arrow">→</div>
    <div className={'auction-action '+(moving?'entering':'')}>
-    <p>{step<challengers.length?'Reklamın üzerine çıkmak ister misiniz?':'Açık artırma testi tamamlandı'}</p>
+    <p className="auction-question">{step<challengers.length?'Reklamın üzerine çıkmak ister misiniz?':'Açık artırma testi tamamlandı'}</p>
     <strong>{step<challengers.length?next:'140'} <small>★ Stars</small></strong>
     {step<challengers.length?<button onClick={outbid}>Telegram’da {next} Stars ile öne geç</button>:<button className="again" onClick={reset}>Testi yeniden başlat</button>}
    </div>
