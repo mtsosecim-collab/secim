@@ -25,7 +25,7 @@ export default function AuctionDemo(){
  return <main className="auction-demo">
   <header><a href="/">← Ana sayfaya dön</a><span>YEREL TEST · CANLIYA ALINMADI</span></header>
   <section className="auction-hero"><p>TELEGRAM STARS REKLAM AÇIK ARTIRMASI</p><h1>Öne çıkmak için teklif ver</h1><span className="auction-subtitle">Her teklif, mevcut tutara <b>20 Stars</b> ekler.</span></section>
-  <section className="auction-stage" aria-live="polite"><div className="auction-live"><i/>CANLI TEKLİF</div>
+  <section className={"auction-stage "+(moving?"auction-transition":"")} aria-live="polite"><span className="auction-spark spark-one">✦</span><span className="auction-spark spark-two">✦</span><span className="auction-spark spark-three">✦</span><div className="auction-live"><i/>CANLI TEKLİF</div>
    <div className={'auction-card leader '+(moving?'leaving':'')} style={{'--auction':leader.color} as React.CSSProperties}>
     <div className="auction-rank">★ ŞU ANDA ÖNDE</div><img src={leader.image} alt={leader.name}/><div className="auction-meta"><span>{leader.name}</span><b>{leader.stars} <small>★ Stars</small></b></div>
    </div>
