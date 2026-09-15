@@ -99,3 +99,5 @@
 .sponsor-video-grid{gap:16px;height:auto!important;padding:0;background:transparent;overflow:visible}.sponsor-video-panel{height:480px;overflow:hidden;border:1px solid #20384a;border-radius:18px;background:#101b24;box-shadow:0 10px 25px rgba(11,29,43,.18)}.sponsor-video-panel video{border-radius:17px}@media(max-width:700px){.sponsor-video-grid{gap:13px}.sponsor-video-panel{height:280px}.sponsor-video-grid{height:auto!important}.sponsor-video-grid video{height:280px!important}}
 
 .sponsor-video-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sponsor-video-panel{height:400px}@media(max-width:900px){.sponsor-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.sponsor-video-grid{grid-template-columns:1fr}.sponsor-video-panel{height:280px}}
+
+.sponsor-video-grid,.sponsor-video-panel,.sponsor-video-grid video{background:#f1f3f5!important}.sponsor-video-panel{border-color:#dde3e7}
