@@ -81,3 +81,5 @@
 .site-updates a{color:#087f7a;font-weight:850;text-decoration:underline;text-underline-offset:3px}
 
 .report-intro{max-width:760px;margin:0 auto 25px;padding:14px 18px;border-left:4px solid #0e8b80;border-radius:0 12px 12px 0;background:#eaf8f6;color:#335c69;font-size:14px}
+
+.google-logo{width:19px;height:19px;display:inline-block;flex:0 0 auto}.google-user .google-logo{width:17px;height:17px}
